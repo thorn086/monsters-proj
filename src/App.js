@@ -13,16 +13,16 @@ const App = () => {
       .then((users) => setMonsters(users));
   }, []);
 
-  const onSearchChange = (event) => {
-    const searchFieldString = event.target.value.toLocaleLowerCase();
-    setSearchField(searchFieldString);
-  };
   useEffect(() => {
     const newFilteredMonsters = monsters.filter((monster) => {
       return monster.name.toLocaleLowerCase().includes(searchField);
     });
     setFilteredMonsters(newFilteredMonsters);
   }, [monsters, searchField]);
+  const onSearchChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  };
 
   return (
     <div className="App">
